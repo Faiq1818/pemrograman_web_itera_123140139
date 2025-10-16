@@ -4,16 +4,56 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Project</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body>
-    <h1 class="form-header">Aplikasi Manajemen Tugas</h1>
-    <button id="deleteAllBtn">Hapus localStorage</button>
+    <div class="flex justify-center font-bold my-5">
+      <h1 class="form-header text-lg">Aplikasi Manajemen Tugas</h1>
+    </div>
+  
+    <div class="flex justify-center">
+      <div class="form-container">
+        <div>Nama Tugas</div>
+        <input class="border rounded" type="text" id="assignmentNameInput" placeholder="Nama Tugas" />
+        <div>Mata Kuliah</div>
+        <input class="border rounded" type="text" id="classNameInput" placeholder="Mata Kuliah" />
+        <div>Deadline</div>
+        <input class="border rounded" type="date" id="deadlineInput" placeholder="Deadline" />
+        <button class="border rounded" id="addBtn">Tambah</button>
+      </div>
+    </div>
 
-    <div class="form-container">
-      <input type="text" id="assignmentNameInput" placeholder="Nama Tugas" />
-      <input type="text" id="classNameInput" placeholder="Mata Kuliah" />
-      <input type="text" id="deadlineInput" placeholder="Deadline" />
-      <button id="addBtn">Tambah</button>
+    <br>
+
+    <div class="flex justify-center gap-2">
+      <button class="border rounded" id="deleteAllBtn">Hapus localStorage</button>
+      <button class="border rounded" id="deleteIndex">Hapus satu task</button>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="flex justify-center">
+      <div>
+        <div>Filter tugas</div>
+        <input class="border rounded" id="filterInput" type="text">
+      </div>
+    </div>
+
+    <br>
+
+    <dialog id="myDialog">
+      <h3>Hapus Task</h3>
+      <p>Masukkan index task yang ingin dihapus:</p>
+      <input id="deleteIndexInput" type="number" min="0">
+      <button id="confirmDelete">Hapus</button>
+      <button id="closeDialog">Batal</button>
+    </dialog>
+
+    <br>
+
+    <div class="flex justify-center">
+      <ul id="taskList"></ul>
     </div>
 
     <script src="js/main.js" type="module"></script>
