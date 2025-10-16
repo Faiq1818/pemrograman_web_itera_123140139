@@ -4,10 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Project</title>
-    <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-    <div id="app"></div>
+    <h1 class="form-header">Aplikasi Manajemen Tugas</h1>
+    <button id="deleteAllBtn">Hapus localStorage</button>
+
+    <div class="form-container">
+      <input type="text" id="assignmentNameInput" placeholder="Nama Tugas" />
+      <input type="text" id="classNameInput" placeholder="Mata Kuliah" />
+      <input type="text" id="deadlineInput" placeholder="Deadline" />
+      <button id="addBtn">Tambah</button>
+    </div>
+
     <script src="js/main.js" type="module"></script>
   </body>
 </html>
