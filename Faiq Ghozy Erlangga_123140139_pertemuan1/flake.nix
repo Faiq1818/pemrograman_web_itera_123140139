@@ -20,7 +20,9 @@
         ...
       }: {
         devShells.default = pkgs.mkShell {
-          packages = with pkgs; [cowsay];
+          packages = with pkgs; [
+            nodejs_24
+          ];
           shellHook = ''
             echo "Hello from devShell!"
             exec zsh
