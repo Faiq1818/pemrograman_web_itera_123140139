@@ -6,56 +6,86 @@
     <title>My Project</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
-  <body>
-    <div class="flex justify-center font-bold my-5">
-      <h1 class="form-header text-lg">Aplikasi Manajemen Tugas</h1>
-    </div>
-  
-    <div class="flex justify-center">
-      <div class="form-container">
-        <div>Nama Tugas</div>
-        <input class="border rounded" type="text" id="assignmentNameInput" placeholder="Nama Tugas" />
-        <div>Mata Kuliah</div>
-        <input class="border rounded" type="text" id="classNameInput" placeholder="Mata Kuliah" />
-        <div>Deadline</div>
-        <input class="border rounded" type="date" id="deadlineInput" placeholder="Deadline" />
-        <button class="border rounded" id="addBtn">Tambah</button>
+  <body class="bg-[#1e1e2e] text-[#cdd6f4]">
+    <nav
+      class="form-header font-bold bg-[#181825] text-[#cdd6f4] p-4 text-3xl"
+    >
+      Aplikasi Manajemen Tugas
+    </nav>
+
+    <div class="flex gap-2 min-h-screen">
+      <div class="bg-[#181825] p-4">
+        <div class="flex font-bold border border-[#cba6f7] border-2 p-4 mb-2 justify-center">
+          <h2 class="form-header text-2xl">Tambah tugas</h2>
+        </div>
+
+        <div class="flex">
+          <div class="form-container border border-[#cba6f7] border-2 p-4 mb-2">
+            <div>Nama Tugas</div>
+            <input
+              class="border mb-2"
+              type="text"
+              id="assignmentNameInput"
+              placeholder="Nama Tugas"
+            />
+            <div>Mata Kuliah</div>
+            <input
+              class="border mb-2"
+              type="text"
+              id="classNameInput"
+              placeholder="Mata Kuliah"
+            />
+            <div>Deadline</div>
+            <input
+              class="border"
+              type="date"
+              id="deadlineInput"
+              placeholder="Deadline"
+            />
+            <button
+              class="border p-1 bg-[#f38ba8] text-[#181825] font-bold"
+              id="addBtn"
+            >
+              Tambah
+            </button>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-2 border p-4 border-2 border-[#cba6f7]">
+          <button
+            class="border p-1 bg-[#f38ba8] text-[#181825] font-bold"
+            id="deleteAllBtn"
+          >
+            Hapus semua task
+          </button>
+          <button
+            class="border p-1 bg-[#f38ba8] text-[#181825] font-bold"
+            id="deleteIndex"
+          >
+            Hapus satu task
+          </button>
+
+          <div class="flex">
+            <div>
+              <div>Filter tugas</div>
+              <input class="border" id="filterInput" type="text" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-center">
+        <ul id="taskList"></ul>
       </div>
     </div>
-
-    <br>
-
-    <div class="flex justify-center gap-2">
-      <button class="border rounded" id="deleteAllBtn">Hapus localStorage</button>
-      <button class="border rounded" id="deleteIndex">Hapus satu task</button>
-    </div>
-
-    <br>
-    <br>
-
-    <div class="flex justify-center">
-      <div>
-        <div>Filter tugas</div>
-        <input class="border rounded" id="filterInput" type="text">
-      </div>
-    </div>
-
-    <br>
 
     <dialog id="myDialog">
       <h3>Hapus Task</h3>
       <p>Masukkan index task yang ingin dihapus:</p>
-      <input id="deleteIndexInput" type="number" min="0">
+      <input id="deleteIndexInput" type="number" min="0" />
       <button id="confirmDelete">Hapus</button>
       <button id="closeDialog">Batal</button>
     </dialog>
-
-    <br>
-
-    <div class="flex justify-center">
-      <ul id="taskList"></ul>
-    </div>
-
     <script src="js/main.js" type="module"></script>
   </body>
 </html>

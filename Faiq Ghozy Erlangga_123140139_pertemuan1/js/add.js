@@ -9,8 +9,12 @@ export default function Add() {
     console.log(data);
 
     // input form validation
-    if (assignmentNameInput.value === "" || classNameInput.value === "" || deadlineInput.value === "") {
-      alert("data tidak boleh kosong")
+    if (
+      assignmentNameInput.value === "" ||
+      classNameInput.value === "" ||
+      deadlineInput.value === ""
+    ) {
+      alert("data tidak boleh kosong");
     } else {
       data.push({
         namaTugas: assignmentNameInput.value,
