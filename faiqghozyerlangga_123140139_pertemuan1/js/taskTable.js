@@ -38,7 +38,7 @@ export default function TaskTable() {
         "text-[#a6e3a1]",
         "hover:bg-[#89b4fa]",
         "hover:text-[#1e1e2e]",
-        "cursor-pointer"
+        "cursor-pointer",
       );
     } else {
       tdDone.textContent = "Belum selesai";
@@ -50,12 +50,12 @@ export default function TaskTable() {
         "text-[#f38ba8]",
         "hover:bg-[#89b4fa]",
         "hover:text-[#1e1e2e]",
-        "cursor-pointer"
+        "cursor-pointer",
       );
     }
 
     tdDone.addEventListener("click", () => {
-      if (task.done === true){
+      if (task.done === true) {
         data[index].done = false;
       } else {
         data[index].done = true;
@@ -68,7 +68,17 @@ export default function TaskTable() {
 
     const tdDelete = document.createElement("td");
     tdDelete.textContent = "Hapus";
-    tdDelete.classList.add("border", "px-4", "py-2", "text-center", "text-[#f38ba8]", "border-[#cdd6f4]", "font-bold", "hover:bg-[#f5c2e7]", "cursor-pointer");
+    tdDelete.classList.add(
+      "border",
+      "px-4",
+      "py-2",
+      "text-center",
+      "text-[#f38ba8]",
+      "border-[#cdd6f4]",
+      "font-bold",
+      "hover:bg-[#f5c2e7]",
+      "cursor-pointer",
+    );
 
     // even listener to get index to delete particular data
     tdDelete.addEventListener("click", () => {

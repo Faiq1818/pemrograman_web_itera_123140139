@@ -1,20 +1,19 @@
 # Aplikasi Manajemen Tugas
 
 ## Deskripsi Singkat
+
 Aplikasi Manajemen Tugas adalah aplikasi berbasis web untuk mencatat dan mengelola daftar tugas harian.  
 Semua data disimpan secara lokal menggunakan `localStorage`, sehingga aplikasi dapat digunakan tanpa koneksi internet.
 
 ### Fitur Utama
-- Menambahkan tugas baru beserta mata kuliah dan tenggat waktu  
-- Menandai tugas sebagai selesai  
-- Menghapus tugas tertentu atau seluruh daftar tugas  
-- Penyimpanan data otomatis di browser  
+
+- Menambahkan tugas baru beserta mata kuliah dan tenggat waktu
+- Menandai tugas sebagai selesai
+- Menghapus tugas tertentu atau seluruh daftar tugas
+- Penyimpanan data otomatis di browser
 - Validasi form agar input tidak kosong
 
-
 ## Screenshot Aplikasi
-
-
 
 ## Cara Menjalankan Aplikasi
 
@@ -34,4 +33,4 @@ Semua data disimpan secara lokal menggunakan `localStorage`, sehingga aplikasi d
    ```
    npm run start
    ```
-6. Cek http://localhost:3000/
+5. Cek http://localhost:3000/

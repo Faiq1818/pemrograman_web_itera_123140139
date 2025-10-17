@@ -24,7 +24,7 @@ export default function FilterNameClass() {
     const filteredData = data.filter(
       (task) =>
         task.mataKuliah.toLowerCase().includes(keyword) &&
-        task.done === showDone
+        task.done === showDone,
     );
 
     filteredData.forEach((task, displayIndex) => {
@@ -57,11 +57,13 @@ export default function FilterNameClass() {
         "cursor-pointer",
         task.done ? "text-[#a6e3a1]" : "text-[#f38ba8]",
         "hover:bg-[#89b4fa]",
-        "hover:text-[#1e1e2e]"
+        "hover:text-[#1e1e2e]",
       );
 
       tdDone.addEventListener("click", () => {
-        const realIndex = data.findIndex((t) => t.namaTugas === task.namaTugas && t.deadline === task.deadline);
+        const realIndex = data.findIndex(
+          (t) => t.namaTugas === task.namaTugas && t.deadline === task.deadline,
+        );
         if (realIndex !== -1) {
           data[realIndex].done = !data[realIndex].done;
           localStorage.setItem("tasks", JSON.stringify(data));
@@ -80,11 +82,13 @@ export default function FilterNameClass() {
         "border-[#cdd6f4]",
         "font-bold",
         "hover:bg-[#f5c2e7]",
-        "cursor-pointer"
+        "cursor-pointer",
       );
 
       tdDelete.addEventListener("click", () => {
-        const realIndex = data.findIndex((t) => t.namaTugas === task.namaTugas && t.deadline === task.deadline);
+        const realIndex = data.findIndex(
+          (t) => t.namaTugas === task.namaTugas && t.deadline === task.deadline,
+        );
         if (realIndex !== -1) {
           data.splice(realIndex, 1);
           localStorage.setItem("tasks", JSON.stringify(data));
