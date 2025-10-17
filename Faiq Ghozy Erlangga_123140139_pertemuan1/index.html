@@ -7,15 +7,15 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body class="bg-[#1e1e2e] text-[#cdd6f4]">
-    <nav
-      class="form-header font-bold bg-[#181825] text-[#cdd6f4] p-4 text-3xl"
-    >
+    <nav class="form-header font-bold bg-[#181825] text-[#cdd6f4] p-4 text-3xl">
       Aplikasi Manajemen Tugas
     </nav>
 
     <div class="flex gap-2 min-h-screen">
       <div class="bg-[#181825] p-4">
-        <div class="flex font-bold border border-[#cba6f7] border-2 p-4 mb-2 justify-center">
+        <div
+          class="flex font-bold border border-[#cba6f7] border-2 p-4 mb-2 justify-center"
+        >
           <h2 class="form-header text-2xl">Tambah tugas</h2>
         </div>
 
@@ -72,20 +72,25 @@
             </div>
           </div>
         </div>
+
+
+        <div id="checkUndone" class="flex flex-col gap-2 border p-4 border-2 border-[#cba6f7] mt-2">
+        </div>
       </div>
 
-      <div class="flex justify-center">
-        <ul id="taskList"></ul>
+      <div class="">
+        <table id="taskTable" class="border-collapse border border-spacing-2">
+          <tr class="border">
+            <th class="border">No</th>
+            <th class="border">Tugas</th>
+            <th class="border">Mata Kuliah</th>
+            <th class="border">Deadline</th>
+            <th class="border">Status</th>
+          </tr>
+        </table>
       </div>
     </div>
 
-    <dialog id="myDialog">
-      <h3>Hapus Task</h3>
-      <p>Masukkan index task yang ingin dihapus:</p>
-      <input id="deleteIndexInput" type="number" min="0" />
-      <button id="confirmDelete">Hapus</button>
-      <button id="closeDialog">Batal</button>
-    </dialog>
     <script src="js/main.js" type="module"></script>
   </body>
 </html>

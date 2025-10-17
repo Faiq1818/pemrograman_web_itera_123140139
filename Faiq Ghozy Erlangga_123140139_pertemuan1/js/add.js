@@ -6,7 +6,6 @@ export default function Add() {
 
   button.addEventListener("click", () => {
     let data = JSON.parse(localStorage.getItem("tasks")) || [];
-    console.log(data);
 
     // input form validation
     if (
