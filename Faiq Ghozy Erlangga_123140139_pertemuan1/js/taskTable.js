@@ -7,14 +7,6 @@ export default function TaskTable() {
   data.forEach((task, index) => {
     const tr = document.createElement("tr");
     tr.classList.add("border-b", "hover:bg-gray-800");
-    
-    // even listener to get index to delete particular data
-    tr.addEventListener("click", () => {
-      data.splice(index, 1);
-
-      localStorage.setItem("tasks", JSON.stringify(data));
-      console.log("Index:", index);
-    });
 
     const tdIndex = document.createElement("td");
     tdIndex.textContent = index + 1;
@@ -42,6 +34,9 @@ export default function TaskTable() {
         "px-4",
         "py-2",
         "text-[#a6e3a1]",
+        "hover:bg-[#89b4fa]",
+        "hover:text-[#1e1e2e]",
+        "cursor-pointer"
       );
     } else {
       tdDone.textContent = "Belum selesai";
@@ -51,10 +46,38 @@ export default function TaskTable() {
         "px-4",
         "py-2",
         "text-[#f38ba8]",
+        "hover:bg-[#89b4fa]",
+        "hover:text-[#1e1e2e]",
+        "cursor-pointer"
       );
     }
 
-    tr.append(tdIndex, tdNama, tdMatkul, tdDeadline, tdDone);
+    tdDone.addEventListener("click", () => {
+      if (task.done === true){
+        data[index].done = false;
+      } else {
+        data[index].done = true;
+      }
+
+      localStorage.setItem("tasks", JSON.stringify(data));
+      console.log("Index:", index);
+      location.reload();
+    });
+
+    const tdDelete = document.createElement("td");
+    tdDelete.textContent = "Hapus";
+    tdDelete.classList.add("border", "px-4", "py-2", "text-center", "text-[#f38ba8]", "border-[#cdd6f4]", "font-bold", "hover:bg-[#f5c2e7]", "cursor-pointer");
+
+    // even listener to get index to delete particular data
+    tdDelete.addEventListener("click", () => {
+      data.splice(index, 1);
+
+      localStorage.setItem("tasks", JSON.stringify(data));
+      console.log("Index:", index);
+      location.reload();
+    });
+
+    tr.append(tdIndex, tdNama, tdMatkul, tdDeadline, tdDone, tdDelete);
     table.appendChild(tr);
   });
 }

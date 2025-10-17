@@ -24,5 +24,7 @@ export default function Add() {
       // save to local storage
       localStorage.setItem("tasks", JSON.stringify(data));
     }
+
+    location.reload();
   });
 }

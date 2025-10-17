@@ -7,6 +7,8 @@ const deleteAllBtn = document.getElementById("deleteAllBtn");
 
 deleteAllBtn.addEventListener("click", () => {
   localStorage.clear();
+
+  location.reload();
 });
 
 Filter();
