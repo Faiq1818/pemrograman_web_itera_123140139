@@ -14,6 +14,14 @@ Semua data disimpan secara lokal menggunakan `localStorage`, sehingga aplikasi d
 - Validasi form agar input tidak kosong
 
 ## Screenshot Aplikasi
+#### Tampilan dasar
+![Screenshot 1](./screenshots/screenshot1.png)
+
+#### Input validation
+![Screenshot 2](./screenshots/screenshot2.png)
+
+#### Filter
+![Screenshot 3](./screenshots/screenshot3.png)
 
 ## Cara Menjalankan Aplikasi
 
