@@ -1,3 +1,5 @@
+import CheckUndone from "./checkUndone.js";
+
 export default function TaskTable() {
   const table = document.getElementById("taskTable");
 
@@ -74,6 +76,7 @@ export default function TaskTable() {
 
       localStorage.setItem("tasks", JSON.stringify(data));
       console.log("Index:", index);
+      CheckUndone();
       location.reload();
     });
 

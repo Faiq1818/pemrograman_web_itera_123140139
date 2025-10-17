@@ -1,4 +1,4 @@
-import Filter from "./filter.js";
+import FilterNameClass from "./filter.js";
 import Add from "./add.js";
 import TaskTable from "./taskTable.js";
 import CheckUndone from "./checkUndone.js";
@@ -11,7 +11,7 @@ deleteAllBtn.addEventListener("click", () => {
   location.reload();
 });
 
-Filter();
+FilterNameClass();
 Add();
 TaskTable();
 CheckUndone();

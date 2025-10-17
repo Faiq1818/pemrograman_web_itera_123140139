@@ -43,7 +43,7 @@
               placeholder="Deadline"
             />
             <button
-              class="border p-1 bg-[#f38ba8] text-[#181825] font-bold"
+              class="border p-1 bg-[#f38ba8] text-[#181825] font-bold cursor-pointer hover:bg-[#eba0ac]"
               id="addBtn"
             >
               Tambah
@@ -53,7 +53,7 @@
 
         <div class="flex flex-col gap-2 border p-4 border-2 border-[#cba6f7]">
           <button
-            class="border p-1 bg-[#f38ba8] text-[#181825] font-bold"
+            class="border p-1 bg-[#f38ba8] text-[#181825] font-bold cursor-pointer hover:bg-[#eba0ac]"
             id="deleteAllBtn"
           >
             Hapus semua task
@@ -61,11 +61,13 @@
           <div class="flex">
             <div>
               <div>Filter tugas</div>
+              <div class="text-sm">Berdasar nama mata kuliah</div>
               <input class="border" id="filterInput" type="text" />
+              <div class="text-sm mt-2">Berdasar status</div>
+              <div id="filterStatus" class="bg-[#a6e3a1] p-1 text-[#181825] font-bold text-center cursor-pointer">Selesai</div>
             </div>
           </div>
         </div>
-
 
         <div id="checkUndone" class="flex flex-col gap-2 border p-4 border-2 border-[#cba6f7] mt-2">
         </div>
