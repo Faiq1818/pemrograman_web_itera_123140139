@@ -1,11 +1,11 @@
 # Aplikasi Manajemen Tugas
 
-## Deskripsi Singkat
+## Deskripsi
 
 Aplikasi Manajemen Tugas adalah aplikasi berbasis web untuk mencatat dan mengelola daftar tugas harian.  
 Semua data disimpan secara lokal menggunakan `localStorage`, sehingga aplikasi dapat digunakan tanpa koneksi internet.
 
-### Fitur Utama
+## Fitur Utama
 
 - Menambahkan tugas baru beserta mata kuliah dan tenggat waktu
 - Menandai tugas sebagai selesai
@@ -43,7 +43,7 @@ Semua data disimpan secara lokal menggunakan `localStorage`, sehingga aplikasi d
    ```
 5. Cek http://localhost:3000/
 
-### Pengguanan localstorage dan validation form
+## Pengguanan localstorage dan validation form
 1. penggunaan localstorage di web saya ini adalah untuk menyimpan data dari tugas-tugas yg disimpan, localstorage ini akan disimpan di cache browser sendiri dan akan terhapus jika cache dihapus, localstorage ini tidak dienkripsi, jadi tidak cocok untuk dijadikan tempat menyimpan data-data penting atau rahasia.
 Berikut adalah contoh penggunaanya, disini saya menggunakan api localstorage untuk mengambil data dari localstorage:
 #### js/filter.js
