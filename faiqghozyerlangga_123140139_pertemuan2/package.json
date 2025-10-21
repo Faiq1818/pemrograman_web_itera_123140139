@@ -1,0 +1,16 @@
+{
+  "name": "faiqghozyerlangga_123140139_pertemuan2",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve"
+  },
+  "devDependencies": {
+    "prettier": "3.6.2",
+    "serve": "^14.2.5"
+  }
+}
