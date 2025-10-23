@@ -5,28 +5,46 @@ class WeatherDescription {
 
   getDescription() {
     switch (this.code) {
-      case 0: return "☀️ Cerah";
-      case 1: return "🌤️ Sebagian besar cerah";
-      case 2: return "⛅ Sebagian berawan";
-      case 3: return "☁️ Berawan";
-      case 45: return "🌫️ Kabut";
-      case 48: return "🌫️ Kabut beku";
-      case 51: return "🌦️ Gerimis ringan";
-      case 53: return "🌧️ Gerimis sedang";
-      case 55: return "🌧️ Gerimis lebat";
-      case 61: return "🌦️ Hujan ringan";
-      case 63: return "🌧️ Hujan sedang";
-      case 65: return "🌧️ Hujan lebat";
-      case 80: return "🌦️ Hujan badai ringan";
-      case 81: return "⛈️ Hujan badai sedang";
-      case 82: return "⛈️ Hujan badai kuat";
-      default: return "🌍 Tidak diketahui";
+      case 0:
+        return "☀️ Cerah";
+      case 1:
+        return "🌤️ Sebagian besar cerah";
+      case 2:
+        return "⛅ Sebagian berawan";
+      case 3:
+        return "☁️ Berawan";
+      case 45:
+        return "🌫️ Kabut";
+      case 48:
+        return "🌫️ Kabut beku";
+      case 51:
+        return "🌦️ Gerimis ringan";
+      case 53:
+        return "🌧️ Gerimis sedang";
+      case 55:
+        return "🌧️ Gerimis lebat";
+      case 61:
+        return "🌦️ Hujan ringan";
+      case 63:
+        return "🌧️ Hujan sedang";
+      case 65:
+        return "🌧️ Hujan lebat";
+      case 80:
+        return "🌦️ Hujan badai ringan";
+      case 81:
+        return "⛈️ Hujan badai sedang";
+      case 82:
+        return "⛈️ Hujan badai kuat";
+      default:
+        return "🌍 Tidak diketahui";
     }
   }
 }
 
 export default function Weather() {
+  //fetch the weather api 
   const getWeather = async () => {
+    // Bandar Lampung coordinate
     const lat = -5.4264;
     const lon = 105.2610;
     const url =
@@ -35,10 +53,10 @@ export default function Weather() {
     try {
       const res = await fetch(url);
       const data = await res.json();
-      console.log("Suhu sekarang:", data.current_weather.temperature, "°C");
+      //render weather after getting the data from api
       renderWeather(data);
     } catch (err) {
-      console.error("Gagal mengambil cuaca:", err);
+      console.error(err);
     }
   };
 
@@ -49,8 +67,12 @@ export default function Weather() {
 
     place.innerHTML = "Bandar Lampung";
     temperature.innerHTML = `${data.current_weather.temperature}°C`;
-
-    const weatherDesc = new WeatherDescription(data.current_weather.weathercode);
+    
+    //returning the case from weathercode
+    const weatherDesc = new WeatherDescription(
+      data.current_weather.weathercode,
+    );
+    //and render it
     weather.innerHTML = weatherDesc.getDescription();
   };
 

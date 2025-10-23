@@ -56,10 +56,12 @@ export default function Todolist() {
     input.value = "";
     input.focus();
   }
-
+  
+  // render the data from localstorage first
   const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
   savedTasks.forEach((task) => renderTask(task.text, task.completed));
 
+  // render the data when key enter or addBtn clicked
   addBtn.addEventListener("click", addTask);
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") addTask();
