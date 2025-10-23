@@ -1,12 +1,35 @@
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Project</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  </head>
-  <body class="bg-[#1e1e2e] text-[#cdd6f4]">
-    <script src="js/main.js" type="module"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Project</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-[#1e1e2e] text-[#cdd6f4] font-sans min-h-screen p-6">
+  <nav class="flex items-center justify-between bg-[#313244] px-4 py-3 rounded-lg shadow-md">
+    <h1 class="text-xl font-bold">Personal Dashboard</h1>
+    <span class="text-sm text-[#a6adc8]">by Faiq</span>
+  </nav>
+
+  <div class="mt-8">
+    <h1 class="text-2xl font-semibold mb-4">To-Do List</h1>
+
+    <div class="flex gap-2 mb-4">
+      <input id="taskInput" type="text" placeholder="Tambahkan tugas..."
+        class="flex-1 px-3 py-2 rounded-md bg-[#313244] text-[#cdd6f4] placeholder-[#6c7086] focus:outline-none focus:ring-2 focus:ring-[#89b4fa]">
+      <button id="addBtn"
+        class="px-4 py-2 bg-[#89b4fa] text-[#1e1e2e] rounded-md font-medium hover:bg-[#74c7ec] transition">
+        Tambah
+      </button>
+    </div>
+
+    <ul id="taskList" class="space-y-2"></ul>
+  </div>
+
+  <script src="js/main.js" type="module"></script>
+</body>
+
 </html>
