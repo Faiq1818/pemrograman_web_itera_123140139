@@ -38,6 +38,7 @@
 
 ## Pengguanan fitur ES6+
 1. let dan const
+
 penggunaan fitur ini sangat umum di kode saya ini, berikut contohnya:
 #### js/todolist.js
 ```js
@@ -52,6 +53,7 @@ penggunaan fitur ini sangat umum di kode saya ini, berikut contohnya:
   };
 ```
 2. Arrow function dan async await
+
 Fitur arrow function sangat berguna untuk fungsi yg hanya digunakan sekali saja, lalu untuk async await sangat berguna untuk penggunaan asynchronous yg menunggu suatu data atau komputasi selesai sebelum melanjutkan kode, berikut ini adalah contohnya, saya menggunakan async await untuk fetching api data cuaca dari open-meteo: 
 ##### js/weather.js
 ```js
@@ -73,6 +75,7 @@ Fitur arrow function sangat berguna untuk fungsi yg hanya digunakan sekali saja,
   };
 ```
 3. Template literal
+
 Fitur berguna untuk fleksibilitas dan kemudahan dalam memasukan variabel ke dalam suatu string:
 ##### js/weather.js
 ```js
@@ -85,6 +88,7 @@ Fitur berguna untuk fleksibilitas dan kemudahan dalam memasukan variabel ke dala
     temperature.innerHTML = `${data.current_weather.temperature}°C`;
 ```
 4. Class
+
 Walaupun jarang digunakan oleh kebanyakan developer frontend javascript, class masih tetap bisa digunakan untuk mengenkapsulasi suatu kode, berikut contohnya:
 ##### js/weather.js
 ```js
