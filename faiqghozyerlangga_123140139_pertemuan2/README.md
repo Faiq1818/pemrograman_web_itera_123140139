@@ -10,10 +10,10 @@
 #### Tampilan dasar
 ![Screenshot 1](./screenshots/screenshot1.png)
 
-#### Input validation
+#### Menampilkan todolist yg didapat dari localstorage atau ditambahkan langsung
 ![Screenshot 2](./screenshots/screenshot2.png)
 
-#### Filter
+#### List bisa ditandai selesai
 ![Screenshot 3](./screenshots/screenshot3.png)
 
 ## Cara Menjalankan Aplikasi
@@ -36,58 +36,99 @@
    ```
 5. Browser otomatis terbuka atau cek di localhost:8080
 
-## Pengguanan localstorage dan validation form
-1. penggunaan localstorage di web saya ini adalah untuk menyimpan data dari tugas-tugas yg disimpan, localstorage ini akan disimpan di cache browser sendiri dan akan terhapus jika cache dihapus, localstorage ini tidak dienkripsi, jadi tidak cocok untuk dijadikan tempat menyimpan data-data penting atau rahasia.
-Berikut adalah contoh penggunaanya, disini saya menggunakan api localstorage untuk mengambil data dari localstorage:
-#### js/filter.js
+## Pengguanan fitur ES6+
+1. let dan const
+penggunaan fitur ini sangat umum di kode saya ini, berikut contohnya:
+#### js/todolist.js
 ```js
-  function renderFiltered() {
-    table.innerHTML = `
-      <tr class="border">
-        <th class="border">No</th>
-        <th class="border">Tugas</th>
-        <th class="border">Mata Kuliah</th>
-        <th class="border">Deadline</th>
-        <th class="border">Status</th>
-        <th class="border">Klik untuk hapus</th>
-      </tr>
-    `;
-
-    const keyword = filterInput.value.toLowerCase().trim();
-    const data = JSON.parse(localStorage.getItem("tasks")) || [];
-
-    // filter data
-    const filteredData = data.filter(
-      (task) =>
-        task.mataKuliah.toLowerCase().includes(keyword) &&
-        task.done === showDone,
-    );
+  const saveTasks = () => {
+    const tasks = [];
+    list.querySelectorAll("li").forEach((li) => {
+      let text = li.querySelector("span").textContent.trim();
+      let completed = li.querySelector("input[type='checkbox']").checked;
+      tasks.push({ text, completed });
+    });
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  };
 ```
-2. Penggunaan validation di project saya ini ada saat ketika add tugas, yg mana akan mengecek apakah input nama tugas, matakuliah atau deadline kosong atau tidak, jika kosong akan diberikan alert dan ditolak, jika berisi maka diperbolehkan dan dimasukan ke localstorage.
-Berikut adalah contoh kodenya, disini saya menggunakan api localstorage untuk menyimpan dan mengambil data tugas:
-##### js/add.js
+2. Arrow function dan async await
+Fitur arrow function sangat berguna untuk fungsi yg hanya digunakan sekali saja, lalu untuk async await sangat berguna untuk penggunaan asynchronous yg menunggu suatu data atau komputasi selesai sebelum melanjutkan kode, berikut ini adalah contohnya, saya menggunakan async await untuk fetching api data cuaca dari open-meteo: 
+##### js/weather.js
 ```js
-  button.addEventListener("click", () => {
-    let data = JSON.parse(localStorage.getItem("tasks")) || [];
+  const getWeather = async () => {
+    // Bandar Lampung coordinate
+    const lat = -5.4264;
+    const lon = 105.2610;
+    const url =
+      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
 
-    // input form validation
-    if (
-      assignmentNameInput.value === "" ||
-      classNameInput.value === "" ||
-      deadlineInput.value === ""
-    ) {
-      alert("data tidak boleh kosong");
-    } else {
-      data.push({
-        namaTugas: assignmentNameInput.value,
-        mataKuliah: classNameInput.value,
-        deadline: deadlineInput.value,
-        done: false,
-      });
-      // save to local storage
-      localStorage.setItem("tasks", JSON.stringify(data));
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      //render weather after getting the data from api
+      renderWeather(data);
+    } catch (err) {
+      console.error(err);
     }
-
-    location.reload();
-  });
+  };
 ```
+3. Template literal
+Fitur berguna untuk fleksibilitas dan kemudahan dalam memasukan variabel ke dalam suatu string:
+##### js/weather.js
+```js
+  const renderWeather = (data) => {
+    const temperature = document.getElementById("temperature");
+    const place = document.getElementById("place");
+    const weather = document.getElementById("weather");
+
+    place.innerHTML = "Bandar Lampung";
+    temperature.innerHTML = `${data.current_weather.temperature}°C`;
+```
+4. Class
+Walaupun jarang digunakan oleh kebanyakan developer frontend javascript, class masih tetap bisa digunakan untuk mengenkapsulasi suatu kode, berikut contohnya:
+##### js/weather.js
+```js
+class WeatherDescription {
+  constructor(code) {
+    this.code = code;
+  }
+
+  getDescription() {
+    switch (this.code) {
+      case 0:
+        return "☀️ Cerah";
+      case 1:
+        return "🌤️ Sebagian besar cerah";
+      case 2:
+        return "⛅ Sebagian berawan";
+      case 3:
+        return "☁️ Berawan";
+      case 45:
+        return "🌫️ Kabut";
+      case 48:
+        return "🌫️ Kabut beku";
+      case 51:
+        return "🌦️ Gerimis ringan";
+      case 53:
+        return "🌧️ Gerimis sedang";
+      case 55:
+        return "🌧️ Gerimis lebat";
+      case 61:
+        return "🌦️ Hujan ringan";
+      case 63:
+        return "🌧️ Hujan sedang";
+      case 65:
+        return "🌧️ Hujan lebat";
+      case 80:
+        return "🌦️ Hujan badai ringan";
+      case 81:
+        return "⛈️ Hujan badai sedang";
+      case 82:
+        return "⛈️ Hujan badai kuat";
+      default:
+        return "🌍 Tidak diketahui";
+    }
+  }
+}
+```
+

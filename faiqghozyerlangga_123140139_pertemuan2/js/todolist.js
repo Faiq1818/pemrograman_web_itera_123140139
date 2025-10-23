@@ -6,8 +6,8 @@ export default function Todolist() {
   const saveTasks = () => {
     const tasks = [];
     list.querySelectorAll("li").forEach((li) => {
-      const text = li.querySelector("span").textContent.trim();
-      const completed = li.querySelector("input[type='checkbox']").checked;
+      let text = li.querySelector("span").textContent.trim();
+      let completed = li.querySelector("input[type='checkbox']").checked;
       tasks.push({ text, completed });
     });
     localStorage.setItem("tasks", JSON.stringify(tasks));
