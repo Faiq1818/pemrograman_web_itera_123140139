@@ -21,7 +21,7 @@
       }: {
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
-            python
+            python314
           ];
           shellHook = ''
             echo "Hello from devShell!"
