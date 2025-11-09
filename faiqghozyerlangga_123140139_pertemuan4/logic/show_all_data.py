@@ -15,8 +15,11 @@ def show_all_data():
     table.add_column("Nilai Akhir", justify="left", style="green")
     table.add_column("Grade", justify="left", style="green")
 
+    total_nilai_akhir = 0
+
     for mhs in mahasiswa:
         nilai_akhir = summary(mhs["nilai_uts"], mhs["nilai_uas"], mhs["nilai_tugas"])
+        total_nilai_akhir += nilai_akhir
 
         if nilai_akhir >= 80:
             grade = "A"
@@ -39,6 +42,9 @@ def show_all_data():
             grade
         )
 
+    rata_rata = total_nilai_akhir / len(mahasiswa)
+
     console = Console()
     console.print(table)
+    console.print(f"[bold yellow]Rata-rata nilai akhir semua mahasiswa: {rata_rata:.2f}[/bold yellow]")
 
