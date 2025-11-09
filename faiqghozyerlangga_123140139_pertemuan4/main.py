@@ -1,12 +1,12 @@
 from logic.show_all_data import show_all_data
 from logic.add_new_data import add_new_data
 from logic.biggest_smallest_point import biggest_smallest_point
+from logic.filter_grade import filter_grade
 from rich.console import Console
 from rich.panel import Panel
 from rich.text import Text
 
 def main():
-    console = Console()
     while True:
         title = Text("Menu Utama", style="bold cyan")
         menu_text = (
@@ -17,6 +17,7 @@ def main():
             "5. Selesai"
         )
 
+        console = Console()
         console.print(Panel(menu_text, title=title, border_style="bright_blue"))
 
         choose = input("Pilih salah satu: ")
@@ -28,7 +29,7 @@ def main():
         elif choose == "3":
             biggest_smallest_point()
         elif choose == "4":
-            biggest_smallest_point()
+            filter_grade()
         elif choose == "5":
             break
 

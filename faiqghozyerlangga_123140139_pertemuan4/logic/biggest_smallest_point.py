@@ -5,19 +5,30 @@ from rich.table import Table
 
 def biggest_smallest_point():
     table = Table(title="Nilai terbesar dan terkecil")
+
+    biggest_name = ""
+    biggest_nim = ""
     biggest = 0
+
+    smallest_name = ""
+    smallest_nim = ""
     smallest = 99999999
+
     for mhs in mahasiswa:
         nilai_akhir = summary(mhs["nilai_uts"], mhs["nilai_uas"], mhs["nilai_tugas"])
         if nilai_akhir > biggest:
             biggest = nilai_akhir
+            biggest_name = mhs["nama"]
+            biggest_nim = mhs["nim"]
         if nilai_akhir < smallest:
             smallest = nilai_akhir
+            smallest_name = mhs["nama"]
+            smallest_nim = mhs["nim"]
 
     table.add_column("Terbesar", justify="left", style="cyan")
     table.add_column("Terkecil", justify="left", style="cyan")
 
-    table.add_row(str(biggest), str(smallest))
+    table.add_row(f"{biggest_name} ({biggest_nim}): {biggest}", f"{smallest_name} ({smallest_nim}): {smallest}")
 
     console = Console()
     console.print(table)
