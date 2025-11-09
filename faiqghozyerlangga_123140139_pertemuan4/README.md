@@ -1,20 +1,26 @@
-# Aplikasi Dashboard Pribadi
+# Aplikasi CLI Manajemen Data Mahasiswa Sederhana
 
 ## Fitur Utama
 
-- Menambahkan, menandai dan menghapus todolist
-- Penyimpanan data otomatis di browser
-- Menampilkan data cuaca dan suhu sekarang
+- Mengecek data mahasiswa
+- Menambah data mahasiswa
+- Menentukan grade, rata-rata, dan filter berdasarkan grade mahasiswa
 
 ## Screenshot Aplikasi
-#### Tampilan dasar
+#### Tampilan Awal
 ![Screenshot 1](./screenshots/screenshot1.png)
 
-#### Menampilkan todolist yg didapat dari localstorage atau ditambahkan langsung
+#### Menampilkan tabel data mahasiswa
 ![Screenshot 2](./screenshots/screenshot2.png)
 
-#### List bisa ditandai selesai
+#### Menambahkan mahasiswa
 ![Screenshot 3](./screenshots/screenshot3.png)
+
+#### Mengecek mahasiswa dengan nilai terbesar dan terkecil
+![Screenshot 4](./screenshots/screenshot4.png)
+
+#### Menfilter mahasiswa berdasarkan gradenya
+![Screenshot 5](./screenshots/screenshot5.png)
 
 ## Cara Menjalankan Aplikasi
 
@@ -24,17 +30,16 @@
    ```
 2. Masuk ke folder tugasnya
    ```
-   cd pemrograman_web_itera_123140139/faiqghozyerlangga_123140139_pertemuan2
+   cd pemrograman_web_itera_123140139/faiqghozyerlangga_123140139_pertemuan4
    ```
-3. Install dependensi
+3. Install dependensi (Pastikan poetry telah terinstall untuk management dependency, jika belum, silahkan install di dokumentasi resminya)
    ```
-   npm install
+   poetry install --no-root
    ```
 4. Jalankan localhost
    ```
-   npm run start
+   poetry run python main.py
    ```
-5. Browser otomatis terbuka atau cek di localhost:8080
 
 ## Pengguanan fitur ES6+
 1. let dan const
