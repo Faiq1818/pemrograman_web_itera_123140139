@@ -41,19 +41,9 @@
    poetry run python main.py
    ```
 
-## Pengguanan fitur ES6+
-1. let dan const
-
-penggunaan fitur ini sangat umum di kode saya ini, berikut contohnya:
-#### js/todolist.js
-```js
-  const saveTasks = () => {
-    const tasks = [];
-    list.querySelectorAll("li").forEach((li) => {
-      let text = li.querySelector("span").textContent.trim();
-      let completed = li.querySelector("input[type='checkbox']").checked;
-      tasks.push({ text, completed });
-    });
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  };
-```
+## Dokumentasi
+1. Seluruh data mahasiswa berada di data/dictionary
+2. Seluruh logika kode ada di logic/
+3. main.py hanya sebagai entry file dan menampilkan tabel pilihan
+4. Saya menggunakan Poetry sebagai manajemen dependensi, ini digunakan agar bisa lock versi dependensi agar tidak ada error akibat dependensi yg breaking changes
+5. Flake.nix dan flake.lock adalah file saya yg berguna memanage versi python saya di NixOs
