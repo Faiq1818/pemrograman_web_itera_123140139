@@ -1,6 +1,2 @@
-from data.dictionary import mahasiswa
-
-def summary():
-    for mhs in mahasiswa:
-        nilai_akhir = mhs["nilai_uts"]
-        print(nilai_akhir)
+def summary(nilai_uts, nilai_uas, nilai_tugas):
+    return 0.3 * nilai_uts + 0.4 * nilai_uas + 0.3 * nilai_tugas
