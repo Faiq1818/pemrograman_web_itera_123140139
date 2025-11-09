@@ -46,4 +46,5 @@
 2. Seluruh logika kode ada di logic/
 3. main.py hanya sebagai entry file dan menampilkan tabel pilihan
 4. Saya menggunakan Poetry sebagai manajemen dependensi, ini digunakan agar bisa lock versi dependensi agar tidak ada error akibat dependensi yg breaking changes
-5. Flake.nix dan flake.lock adalah file saya yg berguna memanage versi python saya di NixOs
+5. Saya menggunakan library bernama Rich untuk menampilkan tabel dan text berwarna di cli
+6. Flake.nix dan flake.lock adalah file yg berguna memanage versi python saya di NixOs
