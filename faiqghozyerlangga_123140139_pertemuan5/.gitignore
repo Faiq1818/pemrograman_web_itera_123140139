@@ -1,0 +1,96 @@
+# ==========================
+# Python
+# ==========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Cython
+*.c
+*.cpp
+*.so
+
+# ==========================
+# Virtual Environments
+# ==========================
+venv/
+env/
+ENV/
+.venv/
+.pyenv/
+.venv*/
+pip-wheel-metadata/
+pip-log.txt
+
+# ==========================
+# Build / Distribution
+# ==========================
+build/
+dist/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ==========================
+# IDE / Editor Files
+# ==========================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ==========================
+# Testing / Coverage
+# ==========================
+.coverage
+.tox/
+.nox/
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# ==========================
+# Jupyter / IPython
+# ==========================
+.ipynb_checkpoints
+profile_default/
+ipython_config.py
+
+# ==========================
+# Logs & Misc
+# ==========================
+*.log
+*.pot
+*.mo
+*.tmp
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ==========================
+# Environment variables
+# ==========================
+.env
+.env.*
+*.env
+.envrc
+
+# ==========================
+# PyInstaller
+# ==========================
+*.manifest
+*.spec
