@@ -13,5 +13,10 @@
         "name": "The New York Times",
         "year": "2021",
         "categories": "Magazine"
+    },
+    {
+        "name": "The Power of Friendship",
+        "year": "1990",
+        "categories": "Buku"
     }
 ]
