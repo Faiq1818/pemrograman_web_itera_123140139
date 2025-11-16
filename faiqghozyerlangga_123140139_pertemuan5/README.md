@@ -1,26 +1,20 @@
-# Aplikasi CLI Manajemen Data Mahasiswa Sederhana
+# Sistem Manajemen Perpustakaan Sederhana
 
 ## Fitur Utama
 
-- Mengecek data mahasiswa
-- Menambah data mahasiswa
-- Menentukan grade, rata-rata, dan filter berdasarkan grade mahasiswa
+- Menambahkan data buku atau magazine
+- Mengecek item yang ada
+- Mencari data item berdasarkan nama
 
 ## Screenshot Aplikasi
-#### Tampilan Awal
+#### Tampilan Help
 ![Screenshot 1](./screenshots/screenshot1.png)
 
-#### Menampilkan tabel data mahasiswa
+#### Menambahkan data dan menampilkan data
 ![Screenshot 2](./screenshots/screenshot2.png)
 
-#### Menambahkan mahasiswa
+#### Mencari data
 ![Screenshot 3](./screenshots/screenshot3.png)
-
-#### Mengecek mahasiswa dengan nilai terbesar dan terkecil
-![Screenshot 4](./screenshots/screenshot4.png)
-
-#### Menfilter mahasiswa berdasarkan gradenya
-![Screenshot 5](./screenshots/screenshot5.png)
 
 ## Cara Menjalankan Aplikasi
 
@@ -30,7 +24,7 @@
    ```
 2. Masuk ke folder tugasnya
    ```
-   cd pemrograman_web_itera_123140139/faiqghozyerlangga_123140139_pertemuan4
+   cd pemrograman_web_itera_123140139/faiqghozyerlangga_123140139_pertemuan5
    ```
 3. Install dependensi (Pastikan poetry telah terinstall untuk management dependency, jika belum, silahkan install di dokumentasi resminya)
    ```
@@ -38,7 +32,7 @@
    ```
 4. Jalankan localhost
    ```
-   poetry run python main.py
+   poetry run python main.py -h
    ```
 
 ## Dokumentasi
