@@ -14,6 +14,11 @@ def main():
         action='store_true',
         help='Show collection of book and magazine'
     )
+    parser.add_argument(
+        '-f', '--find',
+        type=str,
+        help='Find an item using name'
+    )
     args = parser.parse_args()
 
     if args.add:
@@ -21,6 +26,9 @@ def main():
 
     if args.show:
         Library.Show()
+
+    if args.find:
+        Library.Find(args.find)
 
 if __name__ == "__main__":
     main()

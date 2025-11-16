@@ -1,12 +1,17 @@
 [
     {
-        "name": "faiq",
-        "year": "123",
-        "categories": "b"
+        "name": "Das Kapital",
+        "year": "1867",
+        "categories": "Buku"
     },
     {
-        "name": "ffffffffffffffffffffffffffff",
-        "year": "fffffffffffffff",
-        "categories": "321"
+        "name": "Tales of Reddit Moderator",
+        "year": "2020",
+        "categories": "Buku"
+    },
+    {
+        "name": "The New York Times",
+        "year": "2021",
+        "categories": "Magazine"
     }
 ]

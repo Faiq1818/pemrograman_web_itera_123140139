@@ -1,20 +1,53 @@
 import json
 from rich.console import Console
 from rich.table import Table
+from .library_item import Book, Magazine
 
 class Library:
+    @staticmethod
+    def load_items():
+        try:
+            with open("data/data.json") as f:
+                raw = json.load(f)
+        except:
+            return []
+
+        items = []
+        for i in raw:
+            if i["categories"] == "b":
+                items.append(Book(i["name"], int(i["year"])))
+            else:
+                items.append(Magazine(i["name"], int(i["year"])))
+
+        return items
+
     @staticmethod
     def Add():
         print("Simpan buku atau magazine")
 
         item_name = input("Masukan nama item: ")
-        item_year = input("Masukan tahun rilis: ")
         item_categories = input("Masukan kategori (jika buku b, jika magazine m): ")
+
+        while True:
+            item_year = input("Masukan tahun rilis: ")
+            if item_year.isdigit():
+                item_year = int(item_year)
+                break
+            else:
+                print("Tahun harus berupa angka!")
+
+        if item_categories == "m":
+            categories = "Magazine"
+        elif item_categories == "b":
+            categories = "Buku"
+        else:
+            print("Kategori tidak sesuai!")
+            return
 
         new_data = {
             "name": item_name,
-            "year": item_year,
-            "categories": item_categories
+            "year": str(item_year),
+            "categories": categories 
         }
 
         try:
@@ -49,3 +82,29 @@ class Library:
 
         console = Console()
         console.print(table)
+    
+    @staticmethod
+    def Find(keyword):
+        keyword = keyword.lower()
+        hasil = []
+
+        items = Library.load_items()
+
+        for item in items:
+            if keyword in item._name.lower():
+                hasil.append(item)
+
+        if not hasil:
+            print("Tidak ditemukan.")
+            return
+
+        table = Table(title="Hasil Pencarian")
+        table.add_column("Judul")
+        table.add_column("Kategori")
+        table.add_column("Tahun")
+
+        for item in hasil:
+            info = item.get_info()
+            table.add_row(info["name"], info["category"], str(info["year"]))
+
+        Console().print(table)
