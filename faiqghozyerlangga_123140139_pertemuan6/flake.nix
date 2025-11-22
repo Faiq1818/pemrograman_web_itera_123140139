@@ -1,5 +1,5 @@
 {
-  description = "Tugas pertemuan 5 Praktikum Pemrograman Aplikasi Web RA";
+  description = "Tugas pertemuan 6 Praktikum Pemrograman Aplikasi Web RA";
 
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
