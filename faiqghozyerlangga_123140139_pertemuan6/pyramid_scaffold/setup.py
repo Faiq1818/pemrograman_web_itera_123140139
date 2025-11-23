@@ -14,6 +14,12 @@ requires = [
     'pyramid_jinja2',
     'pyramid_debugtoolbar',
     'waitress',
+    'alembic',
+    'pyramid_retry',
+    'pyramid_tm',
+    'SQLAlchemy',
+    'transaction',
+    'zope.sqlalchemy',
 ]
 
 tests_require = [
@@ -47,6 +53,9 @@ setup(
     entry_points={
         'paste.app_factory': [
             'main = pyramid_scaffold:main',
+        ],
+        'console_scripts': [
+            'initialize_pyramid_scaffold_db=pyramid_scaffold.scripts.initialize_db:main',
         ],
     },
 )
