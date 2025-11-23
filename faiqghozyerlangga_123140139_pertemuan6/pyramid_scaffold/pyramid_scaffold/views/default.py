@@ -3,6 +3,7 @@ from pyramid.response import Response
 from sqlalchemy.exc import SQLAlchemyError
 from pyramid.httpexceptions import (
     HTTPBadRequest,
+    HTTPNotFound
 )
 
 from .. import models
@@ -12,8 +13,10 @@ from ..models import Matakuliah
 def mahasiswa_list(request):
     """View untuk menampilkan daftar mahasiswa"""
     dbsession = request.dbsession
-    mahasiswas = dbsession.query(Matakuliah).all()
-    return {'mahasiswas': mahasiswas}
+    matakuliah = dbsession.query(Matakuliah).all()
+
+    matakuliah_dicts = [mk.to_dict() for mk in matakuliah]
+    return {'Mata Kuliah': matakuliah_dicts}
 
 @view_config(route_name='matakuliah_add', request_method='POST', renderer='json')
 def mahasiswa_add(request):
@@ -47,6 +50,67 @@ def mahasiswa_add(request):
 
     except Exception as e:
         return HTTPBadRequest(json_body={'error': str(e)})
+
+@view_config(route_name='matakuliah_detail', renderer='json')
+def mahasiswa_detail(request):
+    """View untuk melihat detail satu matakuliah"""
+    dbsession = request.dbsession
+    matakuliah_id = request.matchdict['id']
+    matakuliah = dbsession.query(Matakuliah).filter_by(id=matakuliah_id).first()
+
+    if matakuliah is None:
+        return HTTPNotFound(json_body={'error': 'Mata Kuliah tidak ditemukan'})
+
+    return {'Mata Kuliah': matakuliah.to_dict()}
+
+@view_config(route_name='matakuliah_update', request_method='PUT', renderer='json')
+def mahasiswa_update(request):
+    """View untuk mengupdate data mahasiswa"""
+    dbsession = request.dbsession
+    matakuliah_id = request.matchdict['id']
+
+    # Cari matakuliah yang akan diupdate
+    matakuliah = dbsession.query(Matakuliah).filter_by(id=matakuliah_id).first()
+    if matakuliah is None:
+        return HTTPNotFound(json_body={'error': 'Mahasiswa tidak ditemukan'})
+
+    try:
+        # Ambil data dari request JSON
+        json_data = request.json_body
+
+        # Update atribut yang ada di request
+        if 'kode_mk' in json_data:
+            matakuliah.kode_mk = json_data['kode_mk']
+        if 'nama_mk' in json_data:
+            matakuliah.nama_mk = json_data['nama_mk']
+        if 'sks' in json_data:
+            matakuliah.sks = json_data['sks']
+        if 'semester' in json_data:
+            matakuliah.semester = json_data['semester']
+
+        return {'success': True, 'mahasiswa': matakuliah.to_dict()}
+
+    except Exception as e:
+        return HTTPBadRequest(json_body={'error': str(e)})
+
+@view_config(route_name='matakuliah_delete', request_method='DELETE', renderer='json')
+def mahasiswa_delete(request):
+    """View untuk menghapus data matakuliah"""
+    dbsession = request.dbsession
+    matakuliah_id = request.matchdict['id']
+
+    # Cari matakuliah yang akan dihapus
+    matakuliah = dbsession.query(Matakuliah).filter_by(id=matakuliah_id).first()
+    if matakuliah is None:
+        return HTTPNotFound(json_body={'error': 'Mata Kuliah tidak ditemukan'})
+
+    # Hapus dari database
+    dbsession.delete(matakuliah)
+
+    return {
+        'success': True,
+        'message': f'Mata kuliah dengan id {matakuliah_id} berhasil dihapus'
+    }
 
 
 @view_config(route_name='home', renderer='pyramid_scaffold:templates/mytemplate.jinja2')
